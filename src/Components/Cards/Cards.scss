@@ -1,0 +1,54 @@
+@use "../../assets/sass/variables" as *;
+
+.beer-card {
+  height: 30rem;
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 2px solid black;
+  margin: 1%;
+  background-color: $colorTwo;
+  border-radius: 2rem;
+  text-align: center;
+
+  &__imageContainer {
+    margin: 5%;
+    height: 50%;
+  }
+
+  &__image {
+    height: 100%;
+  }
+
+  &__name {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+    font-size: medium;
+    background-color: $colorFour;
+  }
+  &__description {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $colorFour;
+    border-radius: 1rem;
+    height:30%;
+    width: 80%;
+    font-size: xx-small;
+    padding:2%;
+
+  }
+
+  &__abv {
+    height: 5%;
+    width:20%;
+    background-color: $colorFour;
+    border-radius: 50%;
+
+  }
+}

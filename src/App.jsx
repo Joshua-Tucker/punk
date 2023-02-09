@@ -1,5 +1,5 @@
 import './App.scss';
-import beers from './data/punkData';
+import beers from './assets/punkData';
 import Nav from "./Containers/Nav/Nav"
 import Main from "./Containers/Main/Main"
 
