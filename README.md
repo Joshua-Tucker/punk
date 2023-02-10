@@ -15,3 +15,4 @@ after that i will add in the search and then the drop down options
 then finally style it properlytop it looks good.
 
 extension- add button to add more detail to the card when clicked on
+- nav bar menu home- 9 highest rated 9 newest like beetles

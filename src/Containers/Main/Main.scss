@@ -1,0 +1,10 @@
+.main-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    .main-container__title{
+        margin:1rem;
+        border: 2px solid black;
+    }
+}

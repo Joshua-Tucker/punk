@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
 
-const Search = () => {
+const Search = (props) => {
+
+  const { handleSearch } = props;
+  
   return (
-    <div>Search</div>
-  )
-}
+    <div>
+      <label htmlFor="searchBar">Search your favourite brew!</label>
+      <input
+        id="searchBar"
+        type="text"
+        placeholder="Search..."
+        onInput={handleSearch}
+      />
+    </div>
+  );
+};
 
-export default Search
+export default Search;
