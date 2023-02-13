@@ -2,11 +2,11 @@
 
 
 .searchBar{
-    height:10rem;
+    height:7rem;
     width:10rem;
-    margin-top: 4rem;
+    margin: 2rem 0rem;
     flex-wrap: wrap;
-    border: 2px solid red;
+    border:2px solid $colorThree;
     border-radius: 1rem;
 
 &__title{
@@ -17,5 +17,6 @@
 
 &__input{
     margin-top: 2rem;
+    width:80%;
 }
 }

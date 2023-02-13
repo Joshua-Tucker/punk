@@ -16,3 +16,10 @@ then finally style it properlytop it looks good.
 
 extension- add button to add more detail to the card when clicked on
 - nav bar menu home- 9 highest rated 9 newest like beetles
+
+
+1. Change layout so nav bar on top
+2. Add menu and profile pictures
+3. Add route to page and design layout
+4. Profile Page
+5. Menu Page
