@@ -2,12 +2,34 @@
 
 
 
-.nav-container{
+.nav{
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    min-width: 12rem;
-    justify-content:start;
+    flex-direction: row;
+    justify-content:space-evenly;
     align-items: center;
     background-color: $colorFour;
+
+    &__content-container{
+        display: grid; 
+        grid-template-columns: 1fr 1fr 1fr 1fr; 
+        grid-template-rows: 1fr 1fr; 
+        grid-template-areas: 
+          "countdown countdown countdown countdown"
+          "search search checkbox checkbox"; 
+          width: 20rem; 
+          height: 20rem; 
+          gap: 1rem 1rem;
+
+    }
+    &__countdown{
+        grid-area:countdown;
+    }
+    &__search{
+        grid-area:search;
+    }
+    &__check{
+        grid-area:check;
+    }
+
+
 }
