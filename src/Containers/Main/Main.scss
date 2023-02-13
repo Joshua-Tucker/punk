@@ -1,7 +1,11 @@
+@use "../../assets/sass/variables" as *;
+
+
 .main-container{
     display:flex;
     flex-direction: column;
     justify-content: center;
+    background-color:$colorThree;
     
     .main-container__title{
         margin:1rem;

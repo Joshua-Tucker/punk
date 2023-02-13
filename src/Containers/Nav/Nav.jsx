@@ -1,15 +1,17 @@
 import React from "react";
 import Search from "../../Components/Search/Search";
-import Dropdown from "../../Components/Dropdown/Dropdown";
+import Checkbox from "../../Components/Checkbox/Checkbox";
+import "./Nav.scss";
 
-const Nav = (props) => {
-  const {handleSearch} = props;
+
+const Nav = ({handleSearch, handleCheck}) => {
  
 
       return (
-        <div>
-          <Search handleSearch={handleSearch} />
-          <Dropdown />
+        <div className="nav-container">
+          <Search handleSearch={handleSearch}/>
+          <Checkbox handleCheck={handleCheck}/>
+
         </div>
       );
     };

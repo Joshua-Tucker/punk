@@ -1,0 +1,13 @@
+@use "../../assets/sass/variables" as *;
+
+
+
+.nav-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-width: 12rem;
+    justify-content:start;
+    align-items: center;
+    background-color: $colorFour;
+}

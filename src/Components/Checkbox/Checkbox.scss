@@ -1,0 +1,10 @@
+.checkbox-container{
+    border:2px solid red;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap:wrap;
+    margin:1rem;
+    gap:0.8rem;
+}

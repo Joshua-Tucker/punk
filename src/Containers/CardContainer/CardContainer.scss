@@ -5,9 +5,10 @@
     display:flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    background-color:$colorThree;
+    background-color:$colorFour;
     margin: 5%;
-    border: solid 2px black;
+    border: solid 2px $colorFive;
+    border-radius: 1rem;
     font-size:large;
 
 }
