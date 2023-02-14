@@ -23,9 +23,28 @@ function App() {
 
   const handleCheck = (event) => {
     const isChecked = event.target.checked;
-    const valueArray = ["abv", "classic", "ph"]
+    // const filterMethods = [
+    //   (beer => beer.abv > 6),
+    //   (beer => parseInt(beer.first_brewed.split("/")[1])<2010),
+    //   (beer => beer.ph > 4)
+    // ]
+    // const filteredArray= beers.filter((beer)=>{
+    //   for (let i=0;i<filterMethods.length; i++){
+    //     if(!filterMethods[i](beers)){
+    //       return false
+    //     }
+    //   }
+    //   return true
+    // })
+    // setFilteredArr(filteredArray)
 
 
+    const filterMethods = [
+      (beers.filter((beer) => {
+        return beer.abv > 6;
+  })
+    ]
+    
     if (event.target.value.includes("abv") && isChecked) {
       const filteredBeers = beers.filter((beer) => {
         return beer.abv > 6;
