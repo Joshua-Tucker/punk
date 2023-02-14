@@ -1,7 +1,7 @@
 import React from "react";
 import "./Checkbox.scss";
 
-const Checkbox = ({ handleCheck }) => {
+const Checkbox = ({ handleCheck, handleAbv}) => {
   return (
     <div className="checkbox">
       <h3 className="checkbox__title">Or rather a selection?</h3>
@@ -10,7 +10,7 @@ const Checkbox = ({ handleCheck }) => {
           High Abv
         </label>
         <input
-          onChange={handleCheck}
+          onChange={handleAbv}
           className="checkbox__one"
           type="checkbox"
           id="checkBoxOne"
@@ -38,6 +38,14 @@ const Checkbox = ({ handleCheck }) => {
           id="checkBoxThree"
           name="checkBoxThree"
           value="ph"
+        ></input>
+         <input
+          onChange={handleCheck}
+          className="checkbox__four"
+          type="checkbox"
+          id="checkBoxFour"
+          name="checkBoxFour"
+          value="all"
         ></input>
       </div>
     </div>

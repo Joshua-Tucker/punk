@@ -4,9 +4,9 @@ import Cards from "../../Components/Cards/Cards";
 import "./CardContainer.scss";
 
 const CardContainer = (props) => {
-  const { beers } = props;
+  const { beersData } = props;
 
-  const beerCard = beers.map((beer) => {
+  const beerCard = beersData.map((beer) => {
     return (
       <Link to = {`/beer/${beer.id}`} key={beer.id}>
         <Cards
