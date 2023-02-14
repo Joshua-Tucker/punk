@@ -5,7 +5,6 @@ import beers from "./assets/punkData";
 import Nav from "./Containers/Nav/Nav";
 import Main from "./Containers/Main/Main";
 import { useState } from "react";
-import { buildQueries } from "@testing-library/react";
 
 function App() {
   const [filteredArr, setFilteredArr] = useState(beers);
