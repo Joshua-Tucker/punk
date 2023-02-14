@@ -23,46 +23,35 @@ function App() {
 
   const handleCheck = (event) => {
     const isChecked = event.target.checked;
-    // const filterMethods = [
-    //   (beer => beer.abv > 6),
-    //   (beer => parseInt(beer.first_brewed.split("/")[1])<2010),
-    //   (beer => beer.ph > 4)
-    // ]
-    // const filteredArray= beers.filter((beer)=>{
-    //   for (let i=0;i<filterMethods.length; i++){
-    //     if(!filterMethods[i](beers)){
-    //       return false
-    //     }
-    //   }
-    //   return true
-    // })
-    // setFilteredArr(filteredArray)
 
-
-    const filterMethods = [
-      (beers.filter((beer) => {
-        return beer.abv > 6;
-  })
+    const filterValues = [
+      "abv", "classic","ph"
     ]
-    
-    if (event.target.value.includes("abv") && isChecked) {
-      const filteredBeers = beers.filter((beer) => {
+    const filterMethods = [
+      beers.filter((beer) => {
         return beer.abv > 6;
-      });
-      setFilteredArr(filteredBeers);
-    } else if (event.target.value.includes("classic") && isChecked) {
-      const filteredBeers = beers.filter((beer) => {
+      }),
+      beers.filter((beer) => {
         const beerYear = parseInt(beer.first_brewed.split("/")[1]);
         return beerYear < 2010;
-
-      });
-      setFilteredArr(filteredBeers);
-    } else if (event.target.value.includes("ph") && isChecked) {
-      const filteredBeers = beers.filter((beer) => {
+      }),
+      beers.filter((beer) => {
         return beer.ph > 4;
-      });
+      }),
+    ];
+
+
+
+    if (event.target.value.includes(filterValues[0]) && isChecked) {
+      const filteredBeers = filterMethods[0];
       setFilteredArr(filteredBeers);
-    } else {
+    } else if (event.target.value.includes(filterValues[1]) && isChecked) {
+      const filteredBeers = filterMethods[1]
+      setFilteredArr(filteredBeers);
+    } else if (event.target.value.includes(filterValues[2]) && isChecked) {
+      const filteredBeers = filterMethods[2]
+      setFilteredArr(filteredBeers);
+    }else {
       setFilteredArr(beers);
     }
   };
