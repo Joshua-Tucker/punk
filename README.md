@@ -23,3 +23,14 @@ extension- add button to add more detail to the card when clicked on
 3. Add route to page and design layout
 4. Profile Page
 5. Menu Page
+
+NEW PLAN
+
+Things to do
+
+slice one sentence on cards 1
+style pages 2
+home menu 3
+filter 4
+
+
