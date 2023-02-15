@@ -8,7 +8,7 @@ const CardContainer = (props) => {
 
   const beerCard = beersData.map((beer) => {
     return (
-      <Link to = {`/beer/${beer.id}`} key={beer.id}>
+      <Link to = {`/beer/${beer.name}`} key={beer.id}>
         <Cards
           name={beer.name}
           abv={beer.abv}

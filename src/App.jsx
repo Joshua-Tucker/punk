@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./Containers/Nav/Nav";
 import Main from "./Containers/Main/Main";
 import { useState, useEffect } from "react";
+import PageContainer from "./Containers/PageContainer/PageContainer";
 
 function App() {
   const [beersApiData, setBeersApiData] = useState([]);
@@ -113,6 +114,7 @@ function App() {
         />
         <Routes>
           <Route path="/" element={<Main beersData={beersApiData} />}></Route>
+          <Route path={"/beer/:name"} element={<PageContainer beersData={beersApiData}/>}></Route>
         </Routes>
       </div>
     </Router>
