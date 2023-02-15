@@ -6,21 +6,28 @@ import HomeMenuImage from "../../assets/images/home.png";
 import ProfileMenuImage from "../../assets/images/menu.png";
 import HomeMenu from "../../Components/NavHome/NavHome";
 import ProfileMenu from "../../Components/ProfileMenu/ProfileMenu";
-import RadioButtons from "../../Components/RadioButtons/RadioButtons"
+import { useState } from "react";
 
-
-const Nav = ({handleSearch, handleCheck, handleAbv}) => {
+const Nav = ({handleSearch, handleCheck, handleAbv, userName, handleSubmit}) => {
+const [showSettings,setShowSettings] = useState(false)
+  
+  const toggleSettings = () => {
+    setShowSettings(!showSettings)
+  }
  
 
       return (
         <div className="nav">
+          {showSettings && (
+            <ProfileMenu username={userName} toggleSettings={toggleSettings} handleSubmit={handleSubmit}/>
+          )}
           <img src={HomeMenuImage} alt="home-menu"/>
           <div className="nav__content-container">
-            <h1 className="nav__countdown">Countdown timer</h1>
+            Countdown
           <Search className="nav__search" handleSearch={handleSearch}/>
           <Checkbox className="nav__check" handleCheck={handleCheck} handleAbv={handleAbv}/> 
           </div>
-          <img src={ProfileMenuImage} alt="profile-menu"/>
+          <img src={ProfileMenuImage} alt="profile-menu" onClick={toggleSettings}/>
 
         </div>
       );
