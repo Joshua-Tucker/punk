@@ -13,6 +13,22 @@ function App() {
   const [classicData, setClassicData] = useState(false);
   const [phData, setPhData] = useState(false);
 
+  const [user, setUser] = useState({
+    firstName: "John",
+    lastName: "Doe",
+  });
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let firstName = event.target[0].value;
+    let lastName = event.target[1].value;
+
+    if (firstName && lastName) {
+      event.target.reset();
+      setUser({ firstName, lastName });
+    }
+  };
+
   const getBeers = async () => {
     const url = "https://api.punkapi.com/v2/beers";
     const res = await fetch(url);
@@ -42,14 +58,9 @@ function App() {
     }
   };
 
-  const handleAbv=(event)=>{
-    setAbvData(event.target.value)
-  }
-
-
-
-
-
+  const handleAbv = (event) => {
+    setAbvData(event.target.value);
+  };
 
   const getSearchBeers = async (searchTerm) => {
     const url = `https://api.punkapi.com/v2/beers/?beer_name=${searchTerm}`;
@@ -70,7 +81,6 @@ function App() {
   useEffect(() => {
     getBeers(abvData, classicData, phData);
   }, [abvData, classicData, phData]);
-
 
   // const handleCheck = (event) => {
   //   const isChecked = event.target.checked;
@@ -108,13 +118,26 @@ function App() {
     <Router>
       <div className="App">
         <Nav
+          userName={`${user.firstName} ${user.lastName}`}
+          handleSubmit={handleSubmit}
           handleSearch={handleSearch}
           handleCheck={handleCheck}
           handleAbv={handleAbv}
         />
         <Routes>
-          <Route path="/" element={<Main beersData={beersApiData} />}></Route>
-          <Route path={"/beer/:name"} element={<PageContainer beersData={beersApiData}/>}></Route>
+          <Route
+            path="/"
+            element={
+              <Main
+                beersData={beersApiData}
+                userName={`${user.firstName} ${user.lastName}`}
+              />
+            }
+          ></Route>
+          <Route
+            path={"/beer/:name"}
+            element={<PageContainer beersData={beersApiData} />}
+          ></Route>
         </Routes>
       </div>
     </Router>

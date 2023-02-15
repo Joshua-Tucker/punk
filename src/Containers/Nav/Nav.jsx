@@ -8,31 +8,52 @@ import HomeMenu from "../../Components/NavHome/NavHome";
 import ProfileMenu from "../../Components/ProfileMenu/ProfileMenu";
 import { useState } from "react";
 
-const Nav = ({handleSearch, handleCheck, handleAbv, userName, handleSubmit}) => {
-const [showSettings,setShowSettings] = useState(false)
-  
-  const toggleSettings = () => {
-    setShowSettings(!showSettings)
-  }
- 
+const Nav = ({
+  handleSearch,
+  handleCheck,
+  handleAbv,
+  userName,
+  handleSubmit,
+}) => {
+  const [showProfile, setShowProfile] = useState(false);
 
-      return (
-        <div className="nav">
-          {showSettings && (
-            <ProfileMenu username={userName} toggleSettings={toggleSettings} handleSubmit={handleSubmit}/>
-          )}
-          <img src={HomeMenuImage} alt="home-menu"/>
-          <div className="nav__content-container">
-            Countdown
-          <Search className="nav__search" handleSearch={handleSearch}/>
-          <Checkbox className="nav__check" handleCheck={handleCheck} handleAbv={handleAbv}/> 
-          </div>
-          <img src={ProfileMenuImage} alt="profile-menu" onClick={toggleSettings}/>
+  const toggleProfile = () => {
+    setShowProfile(!showProfile);
+  };
 
+  return (
+    <div className="nav">
+      {showProfile && (
+        <ProfileMenu
+          userName={userName}
+          toggleProfile={toggleProfile}
+          handleSubmit={handleSubmit}
+        />
+      )}
+      <div className="nav__home-menu-container">
+        <img className="nav__home-menu" src={HomeMenuImage} alt="home-menu" />
+      </div>
+      <div className="nav__content-container">
+        
+        <div className="nav__filter-container">
+          <Search className="nav__search" handleSearch={handleSearch} />
+          <Checkbox
+            className="nav__check"
+            handleCheck={handleCheck}
+            handleAbv={handleAbv}
+          />
         </div>
-      );
-    };
-
-
+      </div>
+      <div className="nav__profile-menu-container">
+        <img
+          className="nav__profile-menu"
+          src={ProfileMenuImage}
+          alt="profile-menu"
+          onClick={toggleProfile}
+        />
+      </div>
+    </div>
+  );
+};
 
 export default Nav;

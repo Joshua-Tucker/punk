@@ -39,14 +39,14 @@ const Checkbox = ({ handleCheck, handleAbv}) => {
           name="checkBoxThree"
           value="ph"
         ></input>
-         <input
+         {/* <input
           onChange={handleCheck}
           className="checkbox__four"
           type="checkbox"
           id="checkBoxFour"
           name="checkBoxFour"
           value="all"
-        ></input>
+        ></input> */}
       </div>
     </div>
   );

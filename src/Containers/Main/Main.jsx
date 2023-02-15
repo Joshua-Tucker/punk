@@ -2,12 +2,11 @@ import React from "react";
 import CardContainer from "../CardContainer/CardContainer";
 import "./Main.scss"
 
-const Main = (props) => {
-  const { beersData } = props;
+const Main = ({ beersData, userName }) => {
 
   return (
     <div className="main-container">
-      <div className="main-container__title">Is this working</div>
+      <div className="main-container__title">Hi {userName}, want to look at some beers?</div>
       <CardContainer beersData={beersData} />
     </div>
   );

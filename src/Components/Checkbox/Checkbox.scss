@@ -1,26 +1,25 @@
 @use "../../assets/sass/variables" as *;
 
 .checkbox {
-  border: 2px solid $colorThree;
-  border-radius: 1rem;
+  // border: 2px solid $colorThree;
+  // border-radius: 1rem;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  width: 12rem;
+  margin-bottom: 2%;
+
 
   &__container {
+    border: 2px solid $colorThree;
+    border-radius: 1rem;
     display: grid;
     grid-template-columns: 0.5fr 1fr 0.5fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 0.7rem 0.7rem;
     grid-template-areas:
       "two twoLabel favourite favouriteLabel"
       "one oneLabel three threeLabel";
-    width: 7rem;
-    height: 7rem;
-
+      align-items: center;
   }
 
   &__title {
@@ -47,7 +46,5 @@
   }
   &__three-label {
     grid-area: threeLabel;
-    align-items: center;
-    width:2rem;
   }
 }

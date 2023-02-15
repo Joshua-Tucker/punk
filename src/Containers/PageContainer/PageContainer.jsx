@@ -1,6 +1,5 @@
 import "./PageContainer.scss";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 
 const PageContainer = ({beersData}) => {
@@ -14,7 +13,6 @@ const PageContainer = ({beersData}) => {
 const targetObject = targetArray[0]
 console.log(targetObject)
   return (
-    <Link>
     <div className="pageContainer">
       <div className="pageContainer__image-container">
         <img className="pageContainer__image" src={targetObject.image_url} alt={targetObject.name}/>
@@ -32,7 +30,6 @@ console.log(targetObject)
         <h3 className="pageContainer__brewers-tips">{targetObject.brewers_tips}</h3>
       </div>
     </div>
-    </Link>
   );
 };
 
