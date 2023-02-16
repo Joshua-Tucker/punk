@@ -4,11 +4,16 @@
 .main-container{
     display:flex;
     flex-direction: column;
-    justify-content: center;
     background-color:$colorThree;
+    align-items: center;
     
     .main-container__title{
-        margin:1rem;
-        border: 2px solid black;
+        margin-top:2rem;
+        border: 2px solid $colorFive;
+        border-radius: 10rem;
+        width:40%;
+        padding:2%;
+        font-size: medium;
+        background-color: $colorFour;
     }
 }

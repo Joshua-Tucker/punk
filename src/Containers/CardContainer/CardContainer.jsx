@@ -5,6 +5,7 @@ import "./CardContainer.scss";
 
 const CardContainer = (props) => {
   const { beersData } = props;
+  
 
   const beerCard = beersData.map((beer) => {
     return (

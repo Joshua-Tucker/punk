@@ -3,16 +3,16 @@
 .nav {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-end;
   background-color: $colorFour;
   min-height: 10rem;
+  border: 5px solid $colorFive;
 
   &__content-container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 80%;
     justify-content: space-evenly;
     align-items: flex-end;
   }
