@@ -26,10 +26,12 @@
 
     &:hover {
       cursor: pointer;
+      background-color: $colorTwo;
+      border-radius: 50%;
     }
   }
   &__title {
-    color: $colorFive;
+    color: $colorOne;
     font-size: 30px;
   }
 
@@ -52,6 +54,7 @@
       outline: none;
       border: 5px solid $colorTwo
     }
+
   }
 }
 

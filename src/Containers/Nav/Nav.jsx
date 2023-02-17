@@ -17,9 +17,14 @@ const Nav = ({
   handleSubmit,
 }) => {
   const [showProfile, setShowProfile] = useState(false);
+  const [showHome, setShowHome] = useState(false);
 
   const toggleProfile = () => {
     setShowProfile(!showProfile);
+  };
+
+  const toggleHome = () => {
+    setShowHome(!showHome);
   };
 
   return (
@@ -31,18 +36,24 @@ const Nav = ({
           handleSubmit={handleSubmit}
         />
       )}
+      {showHome && <HomeMenu           userName={userName}
+toggleHome={toggleHome} />}
       <div className="nav__home-menu-container">
-        <img className="nav__home-menu" src={HomeMenuImage} alt="home-menu" />
+        <img
+          className="nav__home-menu"
+          src={HomeMenuImage}
+          alt="home-menu"
+          onClick={toggleHome}
+        />
       </div>
       <div className="nav__content-container">
-        
         <div className="nav__filter-container">
           <Search className="nav__search" handleSearch={handleSearch} />
           <Checkbox
             className="nav__check"
             handleAbv={handleAbv}
             handleClassic={handleClassic}
-            handlePh={handlePh}           
+            handlePh={handlePh}
           />
         </div>
       </div>

@@ -1,0 +1,66 @@
+@use "../../assets/sass/_variables.scss" as *;
+
+.nav-home {
+  background-color: $colorThree;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+
+  &__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__cross {
+    position: absolute;
+    top: 25px;
+    right: 50px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $colorTwo;
+
+      border-radius: 50%;
+    }
+  }
+
+  &__greeting-container {
+    border: 5px solid $colorFive;
+    background-color: $colorFour;
+    border-radius: 2rem;
+    width: 60%;
+    margin-bottom: 50px;
+  }
+
+  &__greeting {
+    font-size: 50px;
+    text-decoration: none;
+    color: $colorOne;
+  }
+  &__question {
+    font-size: 20px;
+    text-decoration: none;
+    color: $colorOne;
+  }
+
+  &__home {
+    font-size: 30px;
+    text-decoration: none;
+    color: $colorOne;
+    padding: 20px;
+    border: 5px solid $colorFive;
+    background-color: $colorFour;
+    border-radius: 2rem;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $colorTwo;
+    }
+  }
+}
