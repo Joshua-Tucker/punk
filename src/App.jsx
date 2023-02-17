@@ -8,10 +8,10 @@ import PageContainer from "./Containers/PageContainer/PageContainer";
 
 function App() {
   const [beersApiData, setBeersApiData] = useState([]);
-  const [filteredArr, setFilteredArr] = useState(beersApiData);
   const [abvData, setAbvData] = useState(false);
   const [classicData, setClassicData] = useState(false);
   const [phData, setPhData] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const [user, setUser] = useState({
     firstName: "John",
@@ -30,89 +30,44 @@ function App() {
   };
 
   const getBeers = async () => {
-    const url = "https://api.punkapi.com/v2/beers";
-    const res = await fetch(url);
-    const data = await res.json();
-    setBeersApiData(data);
-  };
+    let url = "https://api.punkapi.com/v2/beers";
 
-  const getCheckBeers = async (checkbox) => {
-    const url = `https://api.punkapi.com/v2/beers/`;
-    let urlWithParams = url;
-    if (checkbox !== "all") {
-      urlWithParams += `?abv_gt=6`;
-    } else {
-      urlWithParams();
+    if (searchTerm || abvData || classicData || phData) {
+      url += "?";
+    }
+    if (searchTerm) {
+      url += `beer_name=${searchTerm}&`;
+    }
+    if (abvData) {
+      url += "abv_gt=6.0&";
+    }
+    if (classicData) {
+      url += "brewed_before=01-2010&";
     }
     const res = await fetch(url);
-    const data = await res.json();
-    setBeersApiData(data);
-  };
-
-  const handleCheck = (event) => {
-    const isChecked = event.target.checked;
-    if (isChecked) {
-      getCheckBeers(abvData);
-    } else {
-      getBeers();
+    let data = await res.json();
+    if (phData) {
+      data = data.filter((beer) => beer.ph > 4.0);
     }
+    setBeersApiData(data);
   };
 
   const handleAbv = (event) => {
-    setAbvData(event.target.value);
+    setAbvData(event.target.checked);
   };
-
-  const getSearchBeers = async (searchTerm) => {
-    const url = `https://api.punkapi.com/v2/beers/?beer_name=${searchTerm}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    setBeersApiData(data);
+  const handleClassic = (event) => {
+    setClassicData(event.target.checked);
   };
-
+  const handlePh = (event) => {
+    setPhData(event.target.checked);
+  };
   const handleSearch = (event) => {
-    const searchTerm = event.target.value.toLowerCase();
-    if (searchTerm) {
-      getSearchBeers(searchTerm);
-    } else {
-      getBeers();
-    }
+    setSearchTerm(event.target.value.toLowerCase());
   };
 
   useEffect(() => {
-    getBeers(abvData, classicData, phData);
-  }, [abvData, classicData, phData]);
-
-  // const handleCheck = (event) => {
-  //   const isChecked = event.target.checked;
-
-  //   const filterValues = ["abv", "classic", "ph"];
-  //   const filterMethods = [
-  //     beersApiData.filter((beer) => {
-  //       return beer.abv > 6;
-  //     }),
-  //     beersApiData.filter((beer) => {
-  //       const beerYear = parseInt(beer.first_brewed.split("/")[1]);
-  //       return beerYear < 2010;
-  //     }),
-  //     beersApiData.filter((beer) => {
-  //       return beer.ph > 4;
-  //     }),
-  //   ];
-
-  //   if (event.target.value.includes(filterValues[0]) && isChecked) {
-  //     const filteredBeers = filterMethods[0];
-  //     setFilteredArr(filteredBeers);
-  //   } else if (event.target.value.includes(filterValues[1]) && isChecked) {
-  //     const filteredBeers = filterMethods[1];
-  //     setFilteredArr(filteredBeers);
-  //   } else if (event.target.value.includes(filterValues[2]) && isChecked) {
-  //     const filteredBeers = filterMethods[2];
-  //     setFilteredArr(filteredBeers);
-  //   } else {
-  //     setFilteredArr(beersApiData);
-  //   }
-  // };
-  // console.log(filteredArr);
+    getBeers();
+  }, [abvData, classicData, phData,searchTerm]);
 
   return (
     <Router>
@@ -121,8 +76,9 @@ function App() {
           userName={`${user.firstName} ${user.lastName}`}
           handleSubmit={handleSubmit}
           handleSearch={handleSearch}
-          handleCheck={handleCheck}
           handleAbv={handleAbv}
+          handleClassic={handleClassic}
+          handlePh={handlePh}
         />
         <Routes>
           <Route
@@ -155,4 +111,56 @@ export default App;
 //   });
 //   console.log(searchTerm);
 //   setFilteredArr(filteredBeers);
+// };
+
+// const handleCheck = (event) => {
+//   const isChecked = event.target.checked;
+
+//   const filterValues = ["abv", "classic", "ph"];
+//   const filterMethods = [
+//     beersApiData.filter((beer) => {
+//       return beer.abv > 6;
+//     }),
+//     beersApiData.filter((beer) => {
+//       const beerYear = parseInt(beer.first_brewed.split("/")[1]);
+//       return beerYear < 2010;
+//     }),
+//     beersApiData.filter((beer) => {
+//       return beer.ph > 4;
+//     }),
+//   ];
+
+//   if (event.target.value.includes(filterValues[0]) && isChecked) {
+//     const filteredBeers = filterMethods[0];
+//     setFilteredArr(filteredBeers);
+//   } else if (event.target.value.includes(filterValues[1]) && isChecked) {
+//     const filteredBeers = filterMethods[1];
+//     setFilteredArr(filteredBeers);
+//   } else if (event.target.value.includes(filterValues[2]) && isChecked) {
+//     const filteredBeers = filterMethods[2];
+//     setFilteredArr(filteredBeers);
+//   } else {
+//     setFilteredArr(beersApiData);
+//   }
+// };
+// console.log(filteredArr);
+
+// const getCheckBeers = async (checkbox) => {
+//   const url = `https://api.punkapi.com/v2/beers/`;
+//   let urlWithParams = url;
+//   if (checkbox !== "all") {
+//     urlWithParams += `?abv_gt=6`;
+//   } else {
+//     urlWithParams();
+//   }
+//   const res = await fetch(url);
+//   const data = await res.json();
+//   setBeersApiData(data);
+// };
+
+// const getSearchBeers = async (searchTerm) => {
+//   const url = `https://api.punkapi.com/v2/beers/?beer_name=${searchTerm}`;
+//   const res = await fetch(url);
+//   const data = await res.json();
+//   setBeersApiData(data);
 // };

@@ -28,9 +28,7 @@ NEW PLAN
 
 Things to do
 
-slice one sentence on cards 1
 style pages 2
 home menu 3
-filter 4
 
 

@@ -10,7 +10,8 @@ import { useState } from "react";
 
 const Nav = ({
   handleSearch,
-  handleCheck,
+  handleClassic,
+  handlePh,
   handleAbv,
   userName,
   handleSubmit,
@@ -39,8 +40,9 @@ const Nav = ({
           <Search className="nav__search" handleSearch={handleSearch} />
           <Checkbox
             className="nav__check"
-            handleCheck={handleCheck}
             handleAbv={handleAbv}
+            handleClassic={handleClassic}
+            handlePh={handlePh}           
           />
         </div>
       </div>

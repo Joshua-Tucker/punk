@@ -5,16 +5,24 @@ import "./CardContainer.scss";
 
 const CardContainer = (props) => {
   const { beersData } = props;
-  
 
   const beerCard = beersData.map((beer) => {
+    const reducedDescription = beer.description.split(".");
+    const descriptionArray = reducedDescription.map(
+      (sentence) => sentence + "."
+    );
+
     return (
-      <Link to = {`/beer/${beer.name}`} key={beer.id}>
+      <Link
+        style={{ textDecoration: "none" }}
+        to={`/beer/${beer.name}`}
+        key={beer.id}
+      >
         <Cards
           name={beer.name}
           abv={beer.abv}
           image={beer.image_url}
-          description={beer.description}
+          description={descriptionArray[0] + descriptionArray[1]}
         />
       </Link>
     );

@@ -1,54 +1,57 @@
+@use "../../assets/sass/variables" as *;
 
+.pageContainer {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: space-evenly;
+  //   align-items: center;
+  border: 2px solid $colorThree;
+  margin: 2%;
+  background-color: $colorTwo;
+  border-radius: 2rem;
+  text-align: center;
+  height: 100vh;
 
-.pageContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 2fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "image image image name name name"
+    "image image image brewers-tips brewers-tips brewers-tips"
+    "image image image food-pairing food-pairing food-pairing"
+    "image image image stat-container stat-container stat-container"
+    "description description description description description description";
 
-    &__image-container{
-        height:100px;
+  &__image-container {
+    margin: 5%;
+    height: 10%;
+    width:50%;
+    grid-area: image;
+  }
 
+  &__top-container {
+    grid-area: name;
+  }
 
-    }
-    // &_image{
+  &_image {
+    height: 50%;
+  }
+  &__content-container {
+    width: 100%;
+  }
+  &__stats-container {
+    grid-area: stat-container;
+  }
+  &__food-container {
+    grid-area: food-pairing;
+  }
 
-    // }
-    // &__content-container{
-
-    // }
-    &__tagline{
-        text-decoration: none;
-
-    }
-    &__name{
-        text-decoration: none;
-
-    }
-    &__description{
-        text-decoration: none;
-
-    }
-    &__stats-container{
-        text-decoration: none;
-
-    }
-    &__abv{
-        text-decoration: none;
-
-    }
-    &__first-brewed{
-        text-decoration: none;
-
-    }
-    &__ph{
-        text-decoration: none;
-
-    }
-    &__food-pairing{
-        text-decoration: none;
-
-    }
-    &__brewers-tips{
-        text-decoration: none;
-
-    }
-
-
+  &__brewer-container {
+    grid-area: brewers-tips;
+  }
+  &__description-container {
+    grid-area: description;
+  }
 }
