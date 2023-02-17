@@ -67,27 +67,30 @@ function App() {
 
   useEffect(() => {
     getBeers();
-  }, [abvData, classicData, phData,searchTerm]);
+  }, [abvData, classicData, phData, searchTerm]);
 
   return (
     <Router>
       <div className="App">
-        <Nav
-          userName={`${user.firstName} ${user.lastName}`}
-          handleSubmit={handleSubmit}
-          handleSearch={handleSearch}
-          handleAbv={handleAbv}
-          handleClassic={handleClassic}
-          handlePh={handlePh}
-        />
         <Routes>
           <Route
             path="/"
             element={
-              <Main
-                beersData={beersApiData}
-                userName={`${user.firstName} ${user.lastName}`}
-              />
+              <>   
+              <Nav
+              userName={`${user.firstName} ${user.lastName}`}
+              handleSubmit={handleSubmit}
+              handleSearch={handleSearch}
+              handleAbv={handleAbv}
+              handleClassic={handleClassic}
+              handlePh={handlePh}
+            />
+                <Main
+                  beersData={beersApiData}
+                  userName={`${user.firstName} ${user.lastName}`}
+                />
+             
+              </>
             }
           ></Route>
           <Route
@@ -102,65 +105,3 @@ function App() {
 
 export default App;
 
-// const handleSearch = (event) => {
-//   const searchTerm = event.target.value.toLowerCase();
-//   const filteredBeers = beersApiData.filter((beer) => {
-//     if (beer.name.toLowerCase().includes(searchTerm)) {
-//       return true;
-//     }
-//   });
-//   console.log(searchTerm);
-//   setFilteredArr(filteredBeers);
-// };
-
-// const handleCheck = (event) => {
-//   const isChecked = event.target.checked;
-
-//   const filterValues = ["abv", "classic", "ph"];
-//   const filterMethods = [
-//     beersApiData.filter((beer) => {
-//       return beer.abv > 6;
-//     }),
-//     beersApiData.filter((beer) => {
-//       const beerYear = parseInt(beer.first_brewed.split("/")[1]);
-//       return beerYear < 2010;
-//     }),
-//     beersApiData.filter((beer) => {
-//       return beer.ph > 4;
-//     }),
-//   ];
-
-//   if (event.target.value.includes(filterValues[0]) && isChecked) {
-//     const filteredBeers = filterMethods[0];
-//     setFilteredArr(filteredBeers);
-//   } else if (event.target.value.includes(filterValues[1]) && isChecked) {
-//     const filteredBeers = filterMethods[1];
-//     setFilteredArr(filteredBeers);
-//   } else if (event.target.value.includes(filterValues[2]) && isChecked) {
-//     const filteredBeers = filterMethods[2];
-//     setFilteredArr(filteredBeers);
-//   } else {
-//     setFilteredArr(beersApiData);
-//   }
-// };
-// console.log(filteredArr);
-
-// const getCheckBeers = async (checkbox) => {
-//   const url = `https://api.punkapi.com/v2/beers/`;
-//   let urlWithParams = url;
-//   if (checkbox !== "all") {
-//     urlWithParams += `?abv_gt=6`;
-//   } else {
-//     urlWithParams();
-//   }
-//   const res = await fetch(url);
-//   const data = await res.json();
-//   setBeersApiData(data);
-// };
-
-// const getSearchBeers = async (searchTerm) => {
-//   const url = `https://api.punkapi.com/v2/beers/?beer_name=${searchTerm}`;
-//   const res = await fetch(url);
-//   const data = await res.json();
-//   setBeersApiData(data);
-// };

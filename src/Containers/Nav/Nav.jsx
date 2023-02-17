@@ -36,8 +36,7 @@ const Nav = ({
           handleSubmit={handleSubmit}
         />
       )}
-      {showHome && <HomeMenu           userName={userName}
-toggleHome={toggleHome} />}
+      {showHome && <HomeMenu userName={userName} toggleHome={toggleHome} />}
       <div className="nav__home-menu-container">
         <img
           className="nav__home-menu"
