@@ -29,15 +29,6 @@ then finally style it properlytop it looks good.
 
 extension- add button to add more detail to the card when clicked on
 
-
-
-
-
-
-
-
-
-
 - nav bar menu home- 9 highest rated 9 newest like beetles
 
 
@@ -47,11 +38,6 @@ extension- add button to add more detail to the card when clicked on
 4. Profile Page
 5. Menu Page
 
-NEW PLAN
 
-Things to do
-
-style pages 2
-home menu 3
 
 

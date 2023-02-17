@@ -3,10 +3,11 @@
 .pageContainer {
   display: flex;
   flex-direction: column;
-  background-color: $colorFour;
+  background-color: $colorThree;
   justify-content: space-evenly;
 
   &__image-container{
+    height: 100%;
     margin:2%;
   }
 
