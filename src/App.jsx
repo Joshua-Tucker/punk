@@ -14,8 +14,8 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const [user, setUser] = useState({
-    firstName: "John",
-    lastName: "Doe",
+    firstName: "Beer",
+    lastName: "Drinker",
   });
 
   const handleSubmit = (event) => {
