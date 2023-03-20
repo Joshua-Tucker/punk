@@ -73,11 +73,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>   
-              <Nav
+        <Nav
               userName={`${user.firstName} ${user.lastName}`}
               handleSubmit={handleSubmit}
               handleSearch={handleSearch}
@@ -85,6 +81,10 @@ function App() {
               handleClassic={handleClassic}
               handlePh={handlePh}
             />
+          <Route
+            path="/"
+            element={
+              <>   
                 <Main
                   beersData={beersApiData}
                   userName={`${user.firstName} ${user.lastName}`}
